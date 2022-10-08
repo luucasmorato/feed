@@ -1,4 +1,5 @@
 import { Sidebar } from "../components/Sidebar";
+import { Post } from "../components/Post";
 import styles from "./Home.module.css";
 
 export function Home() {
@@ -7,7 +8,9 @@ export function Home() {
       <div className={styles.wrapper}>
         <Sidebar />
 
-        <main>main</main>
+        <main>
+          <Post />
+        </main>
       </div>
     </>
   );
