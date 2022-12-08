@@ -1,5 +1,7 @@
 import { Sidebar } from "../components/Sidebar";
 import { Post } from "../components/Post";
+import { posts } from "../mocks/postsMock";
+
 import styles from "./Home.module.css";
 
 export function Home() {
@@ -9,7 +11,13 @@ export function Home() {
         <Sidebar />
 
         <main>
-          <Post />
+          {posts.map((post) => (
+            <Post
+              author={post.author}
+              publishedAt={post.publishedAt}
+              content={post.content}
+            />
+          ))}
         </main>
       </div>
     </>
