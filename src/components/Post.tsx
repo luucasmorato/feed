@@ -25,7 +25,7 @@ type PostProps = {
 };
 
 export function Post({ author, content, publishedAt }: PostProps) {
-  const [comments, setComments] = useState(["Olá"]);
+  const [comments, setComments] = useState<string[]>([]);
   const [newCommentText, setNewCommentText] = useState("");
 
   const publishedDateFormatted = format(
@@ -46,9 +46,17 @@ export function Post({ author, content, publishedAt }: PostProps) {
   function handleCreateNewComment(e: FormEvent) {
     e.preventDefault();
 
-    setComments([...comments, newCommentText]);
+    newCommentText.length && setComments([...comments, newCommentText]);
 
     setNewCommentText("");
+  }
+
+  function deleteComment(commentToDelete: string) {
+    const commentsWithoutDeleteddOne = comments.filter(
+      (comment) => comment !== commentToDelete
+    );
+
+    setComments(commentsWithoutDeleteddOne);
   }
 
   return (
@@ -73,10 +81,10 @@ export function Post({ author, content, publishedAt }: PostProps) {
       <div className={styles.content}>
         {content.map((line) => {
           if (line.type === TypeContent.PARAGRAPH) {
-            return <p>{line.content}</p>;
+            return <p key={line.content}>{line.content}</p>;
           } else if (line.type === TypeContent.LINK) {
             return (
-              <p>
+              <p key={line.content}>
                 <a href="">{line.content}</a>
               </p>
             );
@@ -101,7 +109,11 @@ export function Post({ author, content, publishedAt }: PostProps) {
 
       <div className={styles.commentList}>
         {comments.map((comment) => (
-          <Comment content={comment} />
+          <Comment
+            key={comment}
+            content={comment}
+            onDeleteComment={deleteComment}
+          />
         ))}
       </div>
     </article>
