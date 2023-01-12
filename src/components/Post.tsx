@@ -46,7 +46,7 @@ export function Post({ author, content, publishedAt }: PostProps) {
   function handleCreateNewComment(e: FormEvent) {
     e.preventDefault();
 
-    newCommentText.length && setComments([...comments, newCommentText]);
+    setComments([...comments, newCommentText]);
 
     setNewCommentText("");
   }
@@ -58,6 +58,8 @@ export function Post({ author, content, publishedAt }: PostProps) {
 
     setComments(commentsWithoutDeleteddOne);
   }
+
+  const isNewCommentEmpty = !!!newCommentText.length;
 
   return (
     <article className={styles.post}>
@@ -103,7 +105,9 @@ export function Post({ author, content, publishedAt }: PostProps) {
           placeholder="Deixe um comentário"
         />
         <footer>
-          <button type="submit">Publicar</button>
+          <button type="submit" disabled={isNewCommentEmpty}>
+            Publicar
+          </button>
         </footer>
       </form>
 
