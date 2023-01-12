@@ -12,7 +12,7 @@ export function Sidebar() {
       <div className={styles.profile}>
         <Avatar hasBorder source="https://github.com/luucasmorato.png" />
         <strong>Lucas Morato</strong>
-        <span>web dev</span>
+        <span>Web Developer</span>
       </div>
 
       <footer>

@@ -6,7 +6,7 @@ export const posts = [
     author: {
       avatarUrl: "https://github.com/luucasmorato.png",
       name: "Lucas Morato",
-      role: "developer",
+      role: "Web Developer",
     },
     content: [
       {
@@ -15,12 +15,11 @@ export const posts = [
       },
       {
         type: TypeContent.PARAGRAPH,
-        content:
-          "Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀",
+        content: "Acabei de subir mais um projeto no meu portifa. 🚀",
       },
       {
         type: TypeContent.LINK,
-        content: "jane.design/doctorcare",
+        content: "link.design/test",
       },
     ],
     publishedAt: new Date("2022-12-04 20:00:00"),
@@ -30,16 +29,16 @@ export const posts = [
     author: {
       avatarUrl: "https://github.com/Rocketseat.png",
       name: "Rocketseat",
-      role: "enterprise",
+      role: "Enterprise",
     },
     content: [
       {
         type: TypeContent.PARAGRAPH,
-        content: "Opa 👋",
+        content: "Olá!",
       },
       {
         type: TypeContent.PARAGRAPH,
-        content: "Estou na área 🚀",
+        content: "👋🚀",
       },
     ],
     publishedAt: new Date("2022-12-08 10:00:00"),
